@@ -8,7 +8,8 @@ import {
 } from "../lib/supabase";
 
 import "./ResetPasswordPage.css";
-
+import oeilIcon from "../assets/oeil.svg";
+import oeilBarreIcon from "../assets/oeil-barre.svg";
 
 export default function ResetPasswordPage() {
 
@@ -454,12 +455,14 @@ export default function ResetPasswordPage() {
                 }}
               >
 
-                <span
-                  className={
+                <img
+                  className="reset-password-eye-icon"
+                  src={
                     showNewPassword
-                      ? "reset-password-eye reset-password-eye-visible"
-                      : "reset-password-eye"
+                      ? oeilIcon
+                      : oeilBarreIcon
                   }
+                  alt=""
                   aria-hidden="true"
                 />
 
@@ -525,12 +528,14 @@ export default function ResetPasswordPage() {
                 }}
               >
 
-                <span
-                  className={
+                <img
+                  className="reset-password-eye-icon"
+                  src={
                     showConfirmPassword
-                      ? "reset-password-eye reset-password-eye-visible"
-                      : "reset-password-eye"
+                      ? oeilIcon
+                      : oeilBarreIcon
                   }
+                  alt=""
                   aria-hidden="true"
                 />
 
