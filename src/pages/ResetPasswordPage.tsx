@@ -47,6 +47,17 @@ export default function ResetPasswordPage() {
     setError
   ] = useState<string | null>(null);
 
+  const [
+    showNewPassword,
+    setShowNewPassword
+  ] = useState(false);
+
+
+  const [
+    showConfirmPassword,
+    setShowConfirmPassword
+  ] = useState(false);
+
 
   useEffect(() => {
 
@@ -395,23 +406,66 @@ export default function ResetPasswordPage() {
             </label>
 
 
-            <input
-              id="new-password"
-              type="password"
-              value={newPassword}
-              placeholder="Enter your new password"
-              autoComplete="new-password"
-              disabled={loading}
-              onChange={(event) => {
+            <div className="reset-password-input-wrapper">
 
-                setNewPassword(
-                  event.target.value
-                );
+              <input
+                id="new-password"
+                type={
+                  showNewPassword
+                    ? "text"
+                    : "password"
+                }
+                value={newPassword}
+                placeholder="Enter your new password"
+                autoComplete="new-password"
+                disabled={loading}
+                onChange={(event) => {
 
-                setError(null);
+                  setNewPassword(
+                    event.target.value
+                  );
 
-              }}
-            />
+                  setError(null);
+
+                }}
+              />
+
+
+              <button
+                type="button"
+                className="reset-password-password-toggle"
+                aria-label={
+                  showNewPassword
+                    ? "Hide password"
+                    : "Show password"
+                }
+                title={
+                  showNewPassword
+                    ? "Hide password"
+                    : "Show password"
+                }
+                disabled={loading}
+                onClick={() => {
+
+                  setShowNewPassword(
+                    (current) => !current
+                  );
+
+                }}
+              >
+
+                <span
+                  className={
+                    showNewPassword
+                      ? "reset-password-eye reset-password-eye-visible"
+                      : "reset-password-eye"
+                  }
+                  aria-hidden="true"
+                />
+
+              </button>
+
+            </div>
 
           </div>
 
@@ -423,23 +477,66 @@ export default function ResetPasswordPage() {
             </label>
 
 
-            <input
-              id="confirm-password"
-              type="password"
-              value={confirmPassword}
-              placeholder="Confirm your new password"
-              autoComplete="new-password"
-              disabled={loading}
-              onChange={(event) => {
+            <div className="reset-password-input-wrapper">
 
-                setConfirmPassword(
-                  event.target.value
-                );
+              <input
+                id="confirm-password"
+                type={
+                  showConfirmPassword
+                    ? "text"
+                    : "password"
+                }
+                value={confirmPassword}
+                placeholder="Confirm your new password"
+                autoComplete="new-password"
+                disabled={loading}
+                onChange={(event) => {
 
-                setError(null);
+                  setConfirmPassword(
+                    event.target.value
+                  );
 
-              }}
-            />
+                  setError(null);
+
+                }}
+              />
+
+
+              <button
+                type="button"
+                className="reset-password-password-toggle"
+                aria-label={
+                  showConfirmPassword
+                    ? "Hide password"
+                    : "Show password"
+                }
+                title={
+                  showConfirmPassword
+                    ? "Hide password"
+                    : "Show password"
+                }
+                disabled={loading}
+                onClick={() => {
+
+                  setShowConfirmPassword(
+                    (current) => !current
+                  );
+
+                }}
+              >
+
+                <span
+                  className={
+                    showConfirmPassword
+                      ? "reset-password-eye reset-password-eye-visible"
+                      : "reset-password-eye"
+                  }
+                  aria-hidden="true"
+                />
+
+              </button>
+
+            </div>
 
           </div>
 
